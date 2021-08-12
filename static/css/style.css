@@ -1,0 +1,182 @@
+.carousel-item{
+    
+    
+    background:no-repeat scroll center scroll;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.carousel-item::before{
+    content: "";
+    display:block;
+    position:absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     background-color:#e87ba2;
+     opacity:0.2;
+ }
+.carousel-caption{
+    bottom: 180px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+.carousel-caption h5{
+    font-size: 80px;
+    font-weight:700;
+
+}
+
+.slider-btn{
+    margin-top:30px;
+}
+.slider-btn .btn{
+    background-color:#e87ba2;
+    columns: white;
+    border-radius: 5px;
+    padding: 10px 30px;
+    font-size: 1rem;
+    margin-right: 15px;
+    font-weight:bold;
+}
+.slider-btn .btn-2{
+    background-color:white;
+    color: black;
+  
+}
+.navbar{
+    background-color:#e87ba2;
+    font-weight: bold;
+
+}
+.navbar-nav > li{
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+.subscriptions{
+    background-color:#ffe6f0;
+}
+.submit-btn{
+    margin-top: 95px;
+    padding: 12px 18px;
+    margin-left: 20px;
+    background-color: #f50057;
+    border-color: #f50057
+}
+.submit-btn:hover{
+    background-color: #e87ba2;
+    border-color: #e87ba2;
+}
+.footer-part{
+    background-color:black;
+}
+
+/*signup login css*/
+.card {
+    width: 100%;
+    padding: 30px;
+    border:none;
+}
+
+.form {
+    padding: 20px
+}
+.form h2{
+    color:#e87ba2;
+}
+.form-control {
+    height: 50px;
+    background-color: #eee
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #f50057;
+    outline: 0;
+    box-shadow: none;
+    background-color: #eee
+}
+
+.inputbox {
+    margin-bottom: 15px
+}
+.register {
+    width: 200px;
+    height: 51px;
+    background-color: #f50057;
+    border-color: #f50057
+}
+
+.register:hover {
+    width: 200px;
+    height: 51px;
+    background-color: #f50057;
+    border-color: #f50057
+}
+
+.login {
+    color: #f50057;
+    text-decoration: none
+}
+
+.login:hover {
+    color: #f50057;
+    text-decoration: none
+}
+.form-check-input:checked {
+    background-color: #f50057;
+    border-color: #f50057
+}
+
+
+
+/* job post css part job_form.html */
+
+.content{
+   padding: 50px 50px;
+   
+}
+.job_form_btn{
+ 
+    background-color: #f50057;
+    border-color: #f50057
+}
+.job_form_btn:hover{
+    background-color: #e87ba2;
+    border-color: #e87ba2;
+}
+
+.text-area{
+   
+    height:100px;
+}
+
+/* job post css part */
+.blog-post-list:hover{
+    background-color:#ffe6f0;
+}
+.blog-post-list h3{
+    color: #f50057;
+}
+.stretched-link{
+    text-decoration: none;
+    color: #f50057;
+
+   
+}
+.stretched-link:hover{
+    
+    color: #e87ba2;
+    
+   
+}
+
+/* job post details  */
+
+.job-context{
+    margin-left: 30px;
+    text-align: justify;
+}

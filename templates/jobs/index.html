@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <main>
+            <!-- image slider par -->
+    <section class="">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/slider1.jpg' %}" class="d-block w-100" alt="..." />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Get Your Dream Job</h5>
+                        <div class="slider-btn">
+                            <button class="btn btn-1">JOBS</button>
+                            <button class="btn btn-2">QUOTES</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/slider2.jpg' %}" class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/slider3.jpg' %}" class="d-block w-100" alt="..." />
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    
+        <section style="height: 300px" class="
+          container
+          subscriptions
+          d-flex
+          justify-content-center
+          align-items-center
+          rounded-3
+          my-5
+          shadow-lg
+          p-3
+          mb-5
+        ">
+            <div>
+                <h1>STAY IN TOUCH</h1>
+                <p>Get job Update by subscriptions here</p>
+                <input type="email" class="form-control form-control-lg" id="colFormLabelLg"
+                    placeholder="Enter Your Email" />
+            </div>
+            <div>
+                <button class="btn btn-warning submit-btn">SUBMIT</button>
+            </div>
+        </section>
+    </main>
+
+    {% endblock %}
