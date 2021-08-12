@@ -10,32 +10,32 @@
             <h2>Post Your Job</h2>
             <div class="col-md-6">
                 <label for="inputTitle" class="form-label">Job Title</label>
-                <input type="text" class="form-control" id="inputEmail4" name="title" placeholder="Job title">
+                <input type="text" class="form-control" id="inputEmail4" name="title" placeholder="Job title" required>
             </div>
             <div class="col-md-6">
                 <label for="inputCompany" class="form-label">Company Name</label>
-                <input type="text" class="form-control" name="companyName" id="inputPassword4" placeholder="Company name">
+                <input type="text" class="form-control" name="companyName" id="inputPassword4" placeholder="Company name" required>
             </div>
             <div class="col-12">
                 <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" name="address" id="inputAddress" placeholder="Enter Company address">
+                <input type="text" class="form-control" name="address" id="inputAddress" placeholder="Enter Company address" required>
             </div>
             
             <div class="col-12">
                 <label for="experience" class="form-label">Experience</label>
-                <input type="text" class="form-control" name="experience" id="experience" placeholder="Experience">
+                <input type="text" class="form-control" name="experience" id="experience" placeholder="Experience" required>
             </div>
             <div class="col-12">
                 <label for="salary" class="form-label">Salary</label>
-                <input type="text" class="form-control" name="salary" id="salary" placeholder="Salary">
+                <input type="text" class="form-control" name="salary" id="salary" placeholder="Salary" required>
             </div>
             <div class="col-12">
                 <label for="inputVacancy" class="form-label">Vacancy</label>
-                <input type="text" class="form-control" name="vacancy" id="inputVacancy" placeholder="Vacancy">
+                <input type="text" class="form-control" name="vacancy" id="inputVacancy" placeholder="Vacancy" required>
             </div>
             <div class="col-12">
                 <label for="status" class="form-label">Employment Status</label>
-                <select class="form-select" name="employmentStatus" aria-label="Default select example">
+                <select class="form-select" name="employmentStatus" aria-label="Default select example" required>
                     <option selected>Select menu</option>
                     <option value="parttime">Part-Time</option>
                     <option value="fulltime">Full-Time</option>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-12">
                 <label for="status" class="form-label">Job Category</label>
-                <select class="form-select" name="categories" aria-label="Default select example">
+                <select class="form-select" name="categories" aria-label="Default select example" required>
                     <option selected>Select menu</option>
                     {%for list in categories  %}
                     <option value="{{list.title}}">{{list.title}}</option>
@@ -52,24 +52,27 @@
                    
                   </select>
             </div>
-            
+            <div class="mb-3 ">
+                <label for="exampleFormControlTextarea1" class="form-label ">Job Context</label>
+                <textarea class="form-control text-area" name="jobResponsibilities" id="exampleFormControlTextarea1" rows="4" required></textarea>
+            </div>
             
             <div class="mb-3 ">
-                <label for="exampleFormControlTextarea1" class="form-label ">Job Responsibilities</label>
-                <textarea class="form-control text-area" name="jobResponsibilities" id="exampleFormControlTextarea1" rows="4"></textarea>
+                <label for="jobContext" class="form-label ">Job Responsibilities</label>
+                <textarea class="form-control text-area" name="jobContext" id="exampleFormControlTextarea1" rows="4" required></textarea>
             </div>
             <div class="mb-3 ">
                 <label for="Additional Requirements" class="form-label ">Additional Requirements</label>
-                <textarea class="form-control text-area" name="additionalRequirements" id="AdditionalRequirements" rows="4"></textarea>
+                <textarea class="form-control text-area" name="additionalRequirements" id="AdditionalRequirements" rows="4" required></textarea>
             </div>
             <div class="mb-3 ">
                 <label for="CompensationOtherBenefits" class="form-label ">Compensation & Other Benefits</label>
-                <textarea class="form-control text-area" name="benefits" id="CompensationOtherBenefits" rows="4"></textarea>
+                <textarea class="form-control text-area" name="benefits" id="CompensationOtherBenefits" rows="4" required></textarea>
             </div>
        
             <div class="mb-3 ">
                 <label for="CompensationOtherBenefits" class="form-label ">Expire Date</label>
-                <input type="datetime-local" id="birthdaytime" name="expiredate">
+                <input type="datetime-local" id="birthdaytime" name="expiredate" required>
             </div>
             
             <div class="col-12">

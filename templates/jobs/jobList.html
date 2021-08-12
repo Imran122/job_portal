@@ -1,1 +1,43 @@
-list
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<main>
+
+    <section class="container">
+        <div class="row mb-2">
+
+            {% for list in job_list %}
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative rounded-3 my-3 shadow-lg blog-post-list">
+                  <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">{{list.title}}</strong>
+                    <h3 class="mb-0">{{list.companyName}}</h3>
+                    <h5 class="mb-0">{{list.address}}</h5>
+                    <div class="mb-1 text-muted">{{list.expiredate}}</div>
+                    <p class="mb-auto">{{list.jobContext|truncatewords:10}}</p>
+                    <a href="#" class="stretched-link">Continue reading</a>
+                  </div>
+              
+                </div>
+              </div>
+              {% endfor %}
+        
+          </div>
+    
+    
+        
+    </section>
+    
+    
+    
+    
+    
+    
+    
+         
+        </main>
+    
+
+
+
+
+{% endblock %}

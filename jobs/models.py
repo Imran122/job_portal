@@ -19,6 +19,7 @@ class Job(models.Model):
     salary=models.IntegerField(null=True, blank=True)
     vacancy=models.IntegerField(null=True, blank=True)
     employmentStatus=models.CharField(max_length=150,null=True, blank=True)
+    jobContext=models.TextField(null=True, blank=True)
     jobResponsibilities=models.TextField(null=True, blank=True)
     additionalRequirements=models.TextField(null=True, blank=True)
     benefits=models.TextField(null=True, blank=True)

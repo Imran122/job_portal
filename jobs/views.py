@@ -26,10 +26,11 @@ def createJob(request):
         jobResponsibilities= request.POST['jobResponsibilities']
         additionalRequirements= request.POST['additionalRequirements']
         benefits = request.POST['benefits']
+        jobContext = request.POST['jobContext']
         expiredate = request.POST['expiredate']
         category_obj = Categorey.objects.get(title=categories)   
         print("in form save.,xx.,.,#@@@@")
-        temp = Job(title=title,categories=category_obj,companyName=companyName,address=address,experience=experience,salary=salary,vacancy=vacancy,employmentStatus=employmentStatus,jobResponsibilities=jobResponsibilities,additionalRequirements=additionalRequirements,benefits=benefits,expiredate=expiredate,)
+        temp = Job(title=title,categories=category_obj,companyName=companyName,address=address,experience=experience,salary=salary,vacancy=vacancy,employmentStatus=employmentStatus,jobResponsibilities=jobResponsibilities,additionalRequirements=additionalRequirements,benefits=benefits,expiredate=expiredate,jobContext=jobContext,)
            
         temp.save()
         messages.success(request, 'You are messages submitted')
@@ -43,6 +44,10 @@ def createJob(request):
 
 
 
-@login_required(login_url='/login/')
+
 def jobList(request):
-    return render(request, 'jobs/jobList.html')
+    job_list = Job.objects.all()
+    context = {
+        'job_list': job_list,
+    }
+    return render(request, 'jobs/jobList.html',context)
