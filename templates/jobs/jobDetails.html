@@ -60,9 +60,12 @@
         </article>
 
         <nav class="blog-pagination" aria-label="Pagination">
+          {% if user.is_authenticated %}
           <a class="btn btn btn-danger" href="{% url 'applyJob' job.id %}">APPLY</a>
+          {% else %}
+          <a class="btn btn btn-danger" href="{% url 'login'  %}">APPLY</a>
         
-         
+          {% endif %}
         </nav>
       </div>
 

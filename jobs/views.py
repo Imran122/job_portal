@@ -15,7 +15,7 @@ def createJob(request):
     categories = Categorey.objects.all()
     
     if request.method == 'POST':
-        print("success,.,.,.,.,#@@@@")
+        
         title= request.POST['title']
         categories= request.POST['categories']
         companyName= request.POST['companyName']
@@ -32,10 +32,10 @@ def createJob(request):
         category_obj = Categorey.objects.get(title=categories)   
         print("in form save.,xx.,.,#@@@@")
         temp = Job(title=title,categories=category_obj,companyName=companyName,address=address,experience=experience,salary=salary,vacancy=vacancy,employmentStatus=employmentStatus,jobResponsibilities=jobResponsibilities,additionalRequirements=additionalRequirements,benefits=benefits,expiredate=expiredate,jobContext=jobContext,)
-           
+        #saving data in temp    
         temp.save()
         messages.success(request, 'You are messages submitted')
-        print("success,.,.,.,.,#@@@@")
+        #print("success,.,.,.,.,#@@@@")
         return render(request, 'jobs/createJob.html') 
     context ={
        
@@ -67,21 +67,27 @@ def jobDetails(request, slug):
     return render(request, 'jobs/jobDetails.html',context)
 
 
-#apply job view     
+#apply job view   
+@login_required(login_url='/login/')  
 def applyJob(request, job_id):
     job = Job.objects.get(pk=job_id)
     user = request.user
     if request.method == 'POST':
-        print("xxxxxx.....1..")
+        #print("xxxxxx.....1..")
         form = JobApplicationForm(request.POST, request.FILES)
-        print("xxxxxx......2.")
+       
         if form.is_valid():
-            print("xxxxxx.....3..")
+            
             application = form.save(commit=False)
             application.job =job
             application.user = request.user
             application.save()
+            messages.success(request, 'You are resume submitted')
+            return render(request, 'jobs/applyJob.html')
+        else:
+            messages.error(request, 'ivalid submitted')
             return render(request, 'jobs/applyJob.html') 
     else:
         form = JobApplicationForm()
+        
     return render(request, 'jobs/applyJob.html',{'form':form,'job':job,})
