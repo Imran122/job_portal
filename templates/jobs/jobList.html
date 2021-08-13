@@ -14,7 +14,7 @@
                     <h5 class="mb-0">{{list.address}}</h5>
                     <div class="mb-1 text-muted">{{list.expiredate}}</div>
                     <p class="mb-auto">{{list.jobContext|truncatewords:10}}</p>
-                    <a href="#" class="stretched-link">Continue reading</a>
+                    <a href="{% url 'jobDetails' list.slug %}" class="stretched-link">Continue reading</a>
                   </div>
               
                 </div>

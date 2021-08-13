@@ -2,8 +2,9 @@ from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 from django.db.models.signals import pre_save
+from django.contrib.auth import get_user_model
 # Create your models here.
-
+User = get_user_model()
 class Categorey(models.Model):
     title = models.CharField(max_length=70)
 
@@ -30,7 +31,7 @@ class Job(models.Model):
     def __str__(self):
         return self.title
     def get_absolute_url(self):
-        return reverse('post',kwargs={ 'slug': self.slug})
+        return reverse('job',kwargs={ 'slug': self.slug})
 
 def create_slug(instance, new_slug=None):
     slug = slugify(instance.title)
@@ -47,3 +48,13 @@ def pre_save_job_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = create_slug(instance)
 pre_save.connect(pre_save_job_receiver, Job)
+
+
+
+# apply job code
+
+class JobApplication(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE,null=True, blank=True)
+    job = models.ForeignKey(Job,on_delete=models.CASCADE,blank=True,null=True)
+    expectedSalary = models.IntegerField(null=True,blank=True)
+    resume = models.FileField(upload_to='files', null=True)

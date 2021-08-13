@@ -1,8 +1,9 @@
-from .models import Job,Categorey
+from .models import Job,Categorey, JobApplication
 from django import forms
 
 
-class JobForm(forms.ModelForm):
+class JobApplicationForm(forms.ModelForm):
+   
     class Meta:
-        model = Job
-        fields = ('title','categories','companyName','address','experience','salary','vacancy','employmentStatus','jobResponsibilities','additionalRequirements','benefits',)
+        model = JobApplication
+        fields = ('expectedSalary','resume',)

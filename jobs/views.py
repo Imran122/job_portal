@@ -1,7 +1,8 @@
-from jobs.models import Categorey, Job
+from django.http.response import HttpResponse
+from jobs.models import Categorey, Job, JobApplication, User
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .forms import JobForm
+from .forms import JobApplicationForm
 from django.contrib import messages
 # Create your views here.
 
@@ -51,3 +52,36 @@ def jobList(request):
         'job_list': job_list,
     }
     return render(request, 'jobs/jobList.html',context)
+
+
+def jobDetails(request, slug):
+    job = Job.objects.filter(slug=slug)
+    
+    if job.exists():
+        job = job.first()
+    else:
+        HttpResponse("<h3>page not found</h3>")
+    context ={
+        'job':job,
+    }
+    return render(request, 'jobs/jobDetails.html',context)
+
+
+#apply job view     
+def applyJob(request, job_id):
+    job = Job.objects.get(pk=job_id)
+    user = request.user
+    if request.method == 'POST':
+        print("xxxxxx.....1..")
+        form = JobApplicationForm(request.POST, request.FILES)
+        print("xxxxxx......2.")
+        if form.is_valid():
+            print("xxxxxx.....3..")
+            application = form.save(commit=False)
+            application.job =job
+            application.user = request.user
+            application.save()
+            return render(request, 'jobs/applyJob.html') 
+    else:
+        form = JobApplicationForm()
+    return render(request, 'jobs/applyJob.html',{'form':form,'job':job,})

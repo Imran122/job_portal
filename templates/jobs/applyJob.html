@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+
+<main>
+
+    <section class="container d-flex justify-content-center align-items-center rounded-3 my-5 shadow-lg mb-5 content ">
+        <form class="row g-3" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+         
+            {% include 'partials/alert.html' %}
+            <h2>Apply For {{job.title}}</h2>
+         
+            <div class="col-12">
+                <label for="inputsalary" class="form-label">Expected Salarys</label>
+                <input type="text" class="form-control" name="expectedSalary" id="salary" placeholder="Enter your expected Salary" required>
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Upload CV</label>
+                <input class="form-control" name="resume" type="file" id="formFile">
+              </div>
+          
+    
+  
+            
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary job_form_btn">SUBMIT</button>
+            </div>
+        </form>
+    </section>
+
+
+
+
+
+
+
+
+</main>
+
+
+
+{% endblock %}

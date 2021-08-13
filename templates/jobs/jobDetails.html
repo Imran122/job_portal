@@ -1,0 +1,95 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<main>
+  <section class="container my-5">
+    <div class="row g-5">
+      <div class="col-md-8">
+        <article class="blog-post">
+          <h4 class="blog-post-title text-success text-uppercase">
+            {{job.title}}
+          </h4>
+          <h5 class="blog-post-title text-uppercase">{{job.companyName}}</h5>
+
+          <p class="blog-post-meta h6">{{job.expiredate}}</p>
+          <h5>Vacancy</h5>
+          <div class="job-context">
+            <h6 class="blog-post-title">{{job.vacancy}}</h6>
+          </div>
+          <h3>Job Context</h3>
+
+          <div class="job-context">
+            <p>T{{job.jobContext}}</p>
+          </div>
+
+          <h3>Job responsibilites</h3>
+
+          <div class="job-context">
+            <p>{{job.jobResponsibilities|linebreaks }}</p>
+          </div>
+
+          <h3>Employment Status</h3>
+
+          <div class="job-context">
+            <p>{{job.employmentStatus }}</p>
+          </div>
+          <h3>Educational Requirements</h3>
+
+          <div class="job-context">
+            <p>{{job.additionalRequirements|linebreaks }}</p>
+          </div>
+          <h3>Compensation & Other Benefits</h3>
+
+          <div class="job-context">
+            <p>{{job.benefits|linebreaks}}</p>
+          </div>
+          <h3>Job Location</h3>
+
+          <div class="job-context">
+            <p>{{job.address}}</p>
+          </div>
+          <h3>Salary</h3>
+
+          <div class="job-context">
+            <p>{{job.salary}} Taka</p>
+          </div>
+          <h3>Experience</h3>
+
+          <div class="job-context">
+            <p>{{job.experience}} YEARS</p>
+          </div>
+        </article>
+
+        <nav class="blog-pagination" aria-label="Pagination">
+          <a class="btn btn btn-danger" href="{% url 'applyJob' job.id %}">APPLY</a>
+        
+         
+        </nav>
+      </div>
+
+      <div class="col-md-4">
+        <div class="position-sticky" style="top: 2rem">
+          <div class="p-4 mb-3 bg-light rounded">
+            <h4 class="fst-italic">Job Summery</h4>
+            <h6>Published On: {{job.timestamp}}</h6>
+            <h6>Expired On: {{job.expiredate}}</h6>
+            <h6>Employment Status: Full-time</h6>
+            <h6>Experience: {{job.experience}} year(s)</h6>
+
+            <h6>Salary: {{job.salary}} (Monthly)</h6>
+            <h6>Job Location: {{job.address}}</h6>
+          </div>
+
+          <div class="p-4 mb-3 bg-light rounded">
+            <h4 class="fst-italic">Features</h4>
+            <h6>Shortlist this job</h6>
+            <h6>Share by Email</h6>
+            <h6>Print this job</h6>
+            <h6>View all jobs of this company</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock %}

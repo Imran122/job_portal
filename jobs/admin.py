@@ -1,5 +1,6 @@
+
 from django.contrib import admin
-from .models import Categorey,Job
+from .models import Categorey,Job, JobApplication
 from django.contrib.auth.admin import UserAdmin
 # Register your models here.
 
@@ -16,3 +17,4 @@ class CategoreyAdmin(admin.ModelAdmin):
 admin.site.register(Job,JobAdmin)
 
 admin.site.register(Categorey, CategoreyAdmin)
+admin.site.register(JobApplication)
