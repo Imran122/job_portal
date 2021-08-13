@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .forms import JobApplicationForm
 from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
 def index(request):
@@ -47,9 +48,20 @@ def createJob(request):
 
 
 def jobList(request):
-    job_list = Job.objects.all()
+    queryset = Job.objects.all()
+    paginator = Paginator(queryset, 6)
+    page_request_var = 'page'
+    page = request.GET.get(page_request_var)
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:
+        queryset = paginator.page(1)
+    except EmptyPage:
+        queryset = paginator.page(paginator.num_pages)
     context = {
-        'job_list': job_list,
+        
+        'queryset': queryset,
+        'page_request_var': page_request_var,
     }
     return render(request, 'jobs/jobList.html',context)
 
